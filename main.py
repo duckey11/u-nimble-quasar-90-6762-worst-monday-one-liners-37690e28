@@ -19,6 +19,7 @@ ENTRY = (
 def main() -> None:
     assert 1 <= len(ENTRY) <= 140, "entry must be 1 to 140 characters"
     assert ENTRY.strip() == ENTRY, "entry must not be only whitespace"
+    assert "\n" not in ENTRY, "entry must be a single line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="") as f:
         f.write(ENTRY)
